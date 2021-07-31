@@ -2,7 +2,7 @@ version: "3"
 services:
   # Customized geth image for indexer
   geth:
-    image: quay.io/amis/indexer-geth:indexer-1.8.21
+    image: yanhuangpai/geth:v1
     ports:
       - "30303:30303"
       - "8546:8546"
@@ -13,6 +13,7 @@ services:
     depends_on:
       - idx-database
   idx-database:
+    platform: linux/x86_64
     image: mysql:5.7
     ports:
       - "3306:3306"
